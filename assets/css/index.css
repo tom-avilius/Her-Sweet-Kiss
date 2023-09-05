@@ -64,6 +64,11 @@
     letter-spacing: 2px;
 }
 
+.hidden {
+
+    display: none !important;
+}
+
 .info-text {
 
     color: rgba(255, 255, 255, 0.7);

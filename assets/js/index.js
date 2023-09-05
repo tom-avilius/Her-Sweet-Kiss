@@ -1,4 +1,35 @@
 
+
+// * Below are classes and function that are called above.
+
+// function to handle first time login
+const handleFirstTimeLogin = () => {
+
+    // login initializer section element.
+    const loginInitializerSection = document.getElementById('login-initializer');
+    // username and location input
+    const usernameInput = document.getElementById('login-username-input');
+    const locationInput = document.getElementById('login-location-input');
+    // continue button
+    const continueButton = document.getElementById('login-continue-btn');
+
+    // adding click event listener to the continue btn 
+    continueButton.addEventListener('click', (event) => {
+
+        // storing the city and username
+        disk.store("username", usernameInput.value);
+        disk.store("city", locationInput.value);
+
+        // hiding the initializer section
+        loginInitializerSection.classList.add('hidden');
+
+        // setting first time login as true.
+        disk.store('herSweetKissLogin', true);
+    });
+}
+
+
+
 // ! It is adviced that all developers who create their own themes
 // ! for the splash application create an entry into the disk using
 // ! disk.store(); method to store first time run of their theme.
@@ -13,30 +44,15 @@
 // disk.get would return null if the variable to searched does not exist
 if (disk.get('herSweetKissLogin') == null) {
 
+    // login initializer section element.
+    const loginInitializerSection = document.getElementById('login-initializer');
+
+    // showing the initializer section
+    loginInitializerSection.classList.remove('hidden');
+
     console.log('First Login Invoked..');
+    disk.clear();
 
     // calling function to handle first time login:
     handleFirstTimeLogin();
-
-    // setting first time login as true.
-    disk.store('herSweetKissLogin', true);
-}
-
-
-
-
-// * Below are classes and function that are called above.
-
-// function to handle first time login
-const handleFirstTimeLogin = () => {
-
-    // login initializer section element.
-    const loginInitializerSection = document.getElementById('login-inititializer');
-    // login initializer div 
-    const loginInitializerDiv = document.getElementById('login-initializer-input');
-    // username and location input
-    const usernameInput = document.getElementById('login-username-input');
-    const locationInput = document.getElementById('login-location-input');
-    // continue button
-    const continueButton = document.getElementById('login-continue-btn');
 }
