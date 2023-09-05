@@ -58,10 +58,24 @@ const enableSettings = (sectionsList) => {
 
     // settings inner sections
     const settingsHome = document.getElementById('settings-home');
+    const homeSettings = document.getElementById('home-settings');
+    const settingList = [homeSettings];
 
     // removing hidden class from settings section
     settings.classList.remove('hidden');
 
+    // function to handle left arrow click
+    handleLeftArrow = () => {
+
+        // removing all settings elements
+        settingList.forEach(val => val.classList.add('hidden'));
+        // making all theme elements visible
+        sectionsList.forEach(val => val.classList.remove('hidden'));
+
+        settingsHome.classList.remove('hidden');
+    }
+
+    // function to handle home settings 
     const handleHomeSettings = () => {
 
         // the home section
@@ -78,7 +92,16 @@ const enableSettings = (sectionsList) => {
 
         // hiding the settings home page
         settingsHome.classList.add('hidden');
+
+        // showing home settings
+        homeSettings.classList.remove('hidden');
     }
+
+    // calling handleLeftArrow when left arrow is clicked
+    document.getElementById('left-arrow').addEventListener('click', event => {
+
+        handleLeftArrow();
+    });
 
     // calling handleHomeSettings() when home section settings is invoked
     document.getElementById('home-section-settings').addEventListener('click', event => {
@@ -95,6 +118,12 @@ const closeSettings = () => {
 
     // adding the hidden class to it
     settings.classList.add('hidden');
+
+    // showing the settings home
+    document.getElementById('settings-home').classList.remove('hidden');
+
+    // hiding all other sections
+    document.getElementById('home-settings').classList.add('hidden');
 }
 
 

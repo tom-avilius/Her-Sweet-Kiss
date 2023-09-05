@@ -175,6 +175,21 @@
 
 /* Code Below is used to style settings section */
 
+.left-arrow {
+
+    position: absolute;
+    left: 52vw;
+    color: #cba6f7;
+
+    animation: all ease-in 0.2s;
+}
+
+.left-arrow:hover {
+
+    opacity: 95%;
+    cursor: pointer;
+}
+
 #settings {
 
     background-color: #1e1e2e;
