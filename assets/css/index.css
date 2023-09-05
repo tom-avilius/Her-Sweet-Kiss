@@ -170,3 +170,71 @@
   outline-offset: 5px;
   background-color: #fff
 }
+
+
+
+/* Code Below is used to style settings section */
+
+#settings {
+
+    background-color: #1e1e2e;
+    height: 100vh;
+    width: 50vw;
+    float: right;
+
+    text-align: center;
+}
+
+#settings h1 {
+
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 1.5rem;
+    color: #cdd6f4	;
+    letter-spacing: 2px;
+    width: -webkit-fill-available;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#settings h2 {
+
+    color: #b4befe;
+    font-weight: 100;
+    font-size: 1.3rem;
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+#sections-list {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 15px;
+}
+
+#sections-list div {
+
+    margin: 5px;
+    height: 15vh;
+    border-radius: 25px;
+    background-color: #a6adc8;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: #181825;
+}
+
+#sections-list div:hover {
+
+    cursor: pointer;
+    opacity: 95%;
+}
