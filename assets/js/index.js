@@ -53,8 +53,24 @@ const enableDraggability = (elementsList) => {
 // function to enable settings
 const enableSettings = () => {
 
-    
+    // the settings section
+    const settings = document.getElementById('settings');
+
+    // removing hidden class from settings section
+    settings.classList.remove('hidden');
 }
+
+// function to close settings section
+const closeSettings = () => {
+
+    // the settings section
+    const settings = document.getElementById('settings');
+
+    // adding the hidden class to it
+    settings.classList.add('hidden');
+}
+
+
 
 // ! It is adviced that all developers who create their own themes
 // ! for the splash application create an entry into the disk using
@@ -88,3 +104,15 @@ const elementsList = createArrayListElements();
 
 // making elements draggable
 enableDraggability(elementsList);
+
+// enabling settings action 
+document.getElementById('personal-settings').addEventListener('click', (event) => {
+
+    enableSettings();
+});
+
+// enabling the settings close button
+document.getElementById('settings-close').addEventListener('click', event => {
+
+    closeSettings();
+});

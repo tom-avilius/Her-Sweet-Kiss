@@ -209,6 +209,20 @@
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
+#settings-close {
+
+    color: #f38ba8;
+    position: absolute;
+    top: 0;
+    left: 95vw;
+}
+
+#settings-close:hover {
+    
+    cursor: pointer;
+    opacity: 90%;
+}
+
 #sections-list {
 
     display: grid;
@@ -233,8 +247,19 @@
     color: #181825;
 }
 
+#sections-list div {
+
+    animation: all 0.2s ease-in;
+}
+
 #sections-list div:hover {
 
     cursor: pointer;
     opacity: 95%;
+}
+
+#personal-settings:hover {
+
+    opacity: 95%;
+    cursor: pointer;
 }
