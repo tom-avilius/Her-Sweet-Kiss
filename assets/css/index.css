@@ -190,6 +190,26 @@
     cursor: pointer;
 }
 
+.set-username-button {
+
+    font-family: 'Open Sans';
+    font-size: 1rem;
+    padding: 6px 20px;
+
+    background-color: #cba6f7;
+    color: #11111b;
+
+    border-radius: 16px;
+}
+
+.settings-content {
+
+    margin-left: 5vw;
+    margin-top: 10vh;
+
+    text-align: left;
+}
+
 #settings {
 
     background-color: #1e1e2e;
@@ -277,4 +297,118 @@
 
     opacity: 95%;
     cursor: pointer;
+}
+
+/* text input used in settings */
+
+.group {
+
+ position: relative;
+ font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+ font-weight: 100;
+}
+
+.input {
+
+ padding: 10px 10px 10px 5px;
+ display: block;
+ width: 200px;
+ border: none;
+ border-bottom: 1px solid #515151;
+ background: transparent;
+ color: #89dceb;
+ font-family: 'Open Sans';
+ font-weight: 100;
+ font-size: 1rem;
+}
+
+.input:focus {
+
+ outline: none;
+}
+
+label {
+
+ color: #74c7ec;
+ font-size: 18px;
+ font-weight: normal;
+ position: absolute;
+ pointer-events: none;
+ left: 5px;
+ top: 10px;
+ transition: 0.2s ease all;
+ -moz-transition: 0.2s ease all;
+ -webkit-transition: 0.2s ease all;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+
+ top: -20px;
+ font-size: 14px;
+ color: #89b4fa;
+}
+
+.bar {
+
+ position: relative;
+ display: block;
+ width: 220px;
+}
+
+.bar:before, .bar:after {
+
+ content: '';
+ height: 2px;
+ width: 0;
+ bottom: 1px;
+ position: absolute;
+ background: #89b4fa;
+ transition: 0.2s ease all;
+ -moz-transition: 0.2s ease all;
+ -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+
+ left: 50%;
+}
+
+.bar:after {
+
+ right: 50%;
+}
+
+.input:focus ~ .bar:before, .input:focus ~ .bar:after {
+
+ width: 50%;
+}
+
+.highlight {
+
+ position: absolute;
+ height: 60%;
+ width: 100px;
+ top: 25%;
+ left: 0;
+ pointer-events: none;
+ opacity: 0.5;
+}
+
+.input:focus ~ .highlight {
+
+ animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+
+ from {
+
+  background: #89b4fa;
+ }
+
+ to {
+
+  width: 0;
+  background: transparent;
+ }
 }
