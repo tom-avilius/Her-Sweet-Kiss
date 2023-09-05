@@ -50,6 +50,11 @@ const enableDraggability = (elementsList) => {
     });
 }
 
+// function to enable settings
+const enableSettings = () => {
+
+    
+}
 
 // ! It is adviced that all developers who create their own themes
 // ! for the splash application create an entry into the disk using

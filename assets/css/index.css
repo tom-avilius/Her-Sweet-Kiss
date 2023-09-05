@@ -71,11 +71,48 @@
 
 #home {
 
-    height: 15vh;
-    width: 20vw;
+    height: 13vh;
+    min-width: 18vw;
     background-color: #45475a;
-
+    padding: 15px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     border-radius: 25px;
+}
+
+#home .name {
+
+    position: absolute;
+    top: 3vh;
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: center;
+    font-weight: 100;
+    font-size: 2rem;
+
+    color: #b4befe;
+}
+
+#home .stat-div {
+
+    position: absolute;
+    top: 8.5vh;
+
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+}
+
+#home .stat-div h2 {
+
+    display: inline;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+#home .stat-div #ram-stat {
+
+    padding-left: 20px;
 }
 
 .info-text {
