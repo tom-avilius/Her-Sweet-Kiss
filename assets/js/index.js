@@ -30,5 +30,13 @@ if (disk.get('herSweetKissLogin') == null) {
 // function to handle first time login
 const handleFirstTimeLogin = () => {
 
-    
+    // login initializer section element.
+    const loginInitializerSection = document.getElementById('login-inititializer');
+    // login initializer div 
+    const loginInitializerDiv = document.getElementById('login-initializer-input');
+    // username and location input
+    const usernameInput = document.getElementById('login-username-input');
+    const locationInput = document.getElementById('login-location-input');
+    // continue button
+    const continueButton = document.getElementById('login-continue-btn');
 }

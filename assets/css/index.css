@@ -64,6 +64,13 @@
     letter-spacing: 2px;
 }
 
+.info-text {
+
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
 #login-initializer {
 
     height: 100vh;
@@ -80,8 +87,8 @@
 #login-credentials-input {
 
     background-color: rgba(0, 0, 0, 0.6);
-    height: 35vh;
-    width: 30vw;
+    height: 45vh;
+    width: 35vw;
 
     display: flex;
     flex-wrap: wrap;
