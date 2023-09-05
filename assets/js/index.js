@@ -28,6 +28,19 @@ const handleFirstTimeLogin = () => {
     });
 }
 
+// function to create list of elements as array 
+const createArrayListElements = () => {
+
+    // array list
+    const list = [
+
+        // sections
+         document.getElementById('home'),
+    ];
+
+    return list;
+}
+
 
 
 // ! It is adviced that all developers who create their own themes
@@ -56,3 +69,5 @@ if (disk.get('herSweetKissLogin') == null) {
     // calling function to handle first time login:
     handleFirstTimeLogin();
 }
+
+const elementsList = createArrayListElements();

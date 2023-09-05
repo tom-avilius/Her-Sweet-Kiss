@@ -69,6 +69,15 @@
     display: none !important;
 }
 
+#home {
+
+    height: 15vh;
+    width: 20vw;
+    background-color: #45475a;
+
+    border-radius: 25px;
+}
+
 .info-text {
 
     color: rgba(255, 255, 255, 0.7);
