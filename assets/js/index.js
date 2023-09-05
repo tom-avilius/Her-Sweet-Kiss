@@ -51,13 +51,40 @@ const enableDraggability = (elementsList) => {
 }
 
 // function to enable settings
-const enableSettings = () => {
+const enableSettings = (sectionsList) => {
 
     // the settings section
     const settings = document.getElementById('settings');
 
+    // settings inner sections
+    const settingsHome = document.getElementById('settings-home');
+
     // removing hidden class from settings section
     settings.classList.remove('hidden');
+
+    const handleHomeSettings = () => {
+
+        // the home section
+        const homeSection = document.getElementById('home');
+
+        // iterating through all the sections and hiding them except for the home section
+        sectionsList.forEach(val => {
+
+            if (val == homeSection) {} else {
+
+                val.classList.add(hidden);
+            }
+        });
+
+        // hiding the settings home page
+        settingsHome.classList.add('hidden');
+    }
+
+    // calling handleHomeSettings() when home section settings is invoked
+    document.getElementById('home-section-settings').addEventListener('click', event => {
+
+        handleHomeSettings();
+    });
 }
 
 // function to close settings section
@@ -108,7 +135,7 @@ enableDraggability(elementsList);
 // enabling settings action 
 document.getElementById('personal-settings').addEventListener('click', (event) => {
 
-    enableSettings();
+    enableSettings(elementsList);
 });
 
 // enabling the settings close button
