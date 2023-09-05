@@ -41,6 +41,14 @@ const createArrayListElements = () => {
     return list;
 }
 
+// function to enable draggability
+const enableDraggability = (elementsList) => {
+
+    elementsList.forEach( val => {
+        
+        element.draggable(val);
+    });
+}
 
 
 // ! It is adviced that all developers who create their own themes
@@ -70,4 +78,8 @@ if (disk.get('herSweetKissLogin') == null) {
     handleFirstTimeLogin();
 }
 
+// creating list of elements
 const elementsList = createArrayListElements();
+
+// making elements draggable
+enableDraggability(elementsList);
