@@ -261,3 +261,30 @@ for (var i=0; i<26; i++) {
         document.getElementById('stat-div').style.color = colorPalleteInfo[val.classList.value];
     });
 }
+
+// enabling the personal icon color pallete
+const personalPallete = document.getElementById('personal-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = personalPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        document.getElementById('personal-settings').style.color = colorPalleteInfo[val.classList.value];
+    });
+}
+
+// enabling the home color pallete
+const homePallete = document.getElementById('home-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = homePallete.item(i);
+
+    // adding event listener to the color
+    val.addEventListener('click', event => {
+
+        document.getElementById('home').style.backgroundColor = val.classList.value;
+    });
+}
