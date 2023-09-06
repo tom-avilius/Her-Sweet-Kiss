@@ -371,3 +371,59 @@ document.getElementById('clock-section-settings').addEventListener('click', even
     settingsHome.classList.add('hidden');
     clockSettings.classList.remove('hidden');
 });
+
+// enabling the hours color pallete
+const hourPallete = document.getElementById('hours-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = hourPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('hours').style.color = colorPalleteInfo[val.classList.value];
+    });
+}
+
+// enabling the minutes color pallete 
+const minutesPallete = document.getElementById('minutes-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = minutesPallete.item(i);
+
+    // changing the color
+    val.addEventListener('click', event => {
+
+        document.getElementById('minutes').style.color = colorPalleteInfo[val.classList.value];
+    });
+}
+
+// enabling the day color pallete
+const dayPallete = document.getElementById('day-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the child element
+    const val = dayPallete.item(i);
+
+    // changing the color
+    val.addEventListener('click', event => {
+
+        document.getElementById('day').style.color = colorPalleteInfo[val.classList.value];
+    });
+}
+
+// enabling the clock pallete
+const clockPallete = document.getElementById('clock-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = clockPallete.item(i);
+
+    // changing the color
+    val.addEventListener('click', event => {
+
+        document.getElementById('clock').style.backgroundColor = colorPalleteInfo[val.classList.value];
+    });
+}
