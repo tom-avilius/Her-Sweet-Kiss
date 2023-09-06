@@ -127,7 +127,7 @@ const enableSettings = () => {
 }
 
 // function to close settings section
-const closeSettings = () => {
+const closeSettings = (elementsList) => {
 
     // the settings section
     const settings = document.getElementById('settings');
@@ -140,6 +140,9 @@ const closeSettings = () => {
 
     // hiding all other sections
     document.getElementById('home-settings').classList.add('hidden');
+
+    // showing all theme elements
+    elementsList.forEach(val => val.classList.remove('hidden'));
 }
 
 
@@ -186,7 +189,7 @@ document.getElementById('personal-settings').addEventListener('click', (event) =
 // enabling the settings close button
 document.getElementById('settings-close').addEventListener('click', event => {
 
-    closeSettings();
+    closeSettings(elementsList);
 });
 
 // getting the time elements
