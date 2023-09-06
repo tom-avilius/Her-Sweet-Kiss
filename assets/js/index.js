@@ -179,6 +179,47 @@ document.getElementById('settings-close').addEventListener('click', event => {
     closeSettings();
 });
 
+// getting the time elements
+const hours = document.getElementById('hours');
+const minutes = document.getElementById('minutes');
+
+// function to manage time
+function setTime(date) {
+
+    // setting hours
+    var hour = date.getHours();
+    if (hour<10) {
+        hour = '0'+hour+':';
+    } else {
+
+        hour = hour+':';
+    }
+    if (hours.innerText != hour) {
+
+        hours.innerText = hour+'';
+    }
+
+    // setting minutes
+    var min = date.getMinutes();
+    if (min<10) {
+
+        min = '0'+min+'';
+    }
+    if (minutes.innerText != min) {
+
+        minutes.innerText = min+'';
+    }
+}
+
+// function to start time
+function startTime() {
+
+    const date  = new Date();
+
+    setTime(date);
+
+    setTimeout(startTime, 1000);
+}
 
 
 // ! Code below manages settings
@@ -289,3 +330,6 @@ for (var i=0; i<26; i++) {
         document.getElementById('home').style.backgroundColor = val.classList.value;
     });
 }
+
+// starting the time
+startTime();
