@@ -242,6 +242,10 @@ function startTime() {
     setTimeout(startTime, 1000);
 }
 
+// starting the time
+startTime();
+
+
 
 // ! Code below manages settings
 // adding click event listener to the set username button to change the username
@@ -263,6 +267,7 @@ document.getElementById('left-arrow').addEventListener('click', event => {
     const settingList = [
 
         document.getElementById('home-settings'),
+        document.getElementById('clock-settings'),
     ];
     // removing all settings elements
     settingList.forEach(val => val.classList.add('hidden'));
@@ -352,5 +357,17 @@ for (var i=0; i<26; i++) {
     });
 }
 
-// starting the time
-startTime();
+// managing clock section settings
+document.getElementById('clock-section-settings').addEventListener('click', event => {
+
+    // the settings elements
+    const settingsHome = document.getElementById('settings-home');
+    const clockSettings = document.getElementById('clock-settings');
+
+    // the clock section
+    const clockSection = document.getElementById('clock');
+
+    // hiding home-settings and showing clock-settings
+    settingsHome.classList.add('hidden');
+    clockSettings.classList.remove('hidden');
+});
