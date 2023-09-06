@@ -54,6 +54,16 @@ const colorPalleteInfo = {
     crust: "rgb(17, 17, 27)", 
 }
 
+const dayInWords = {
+  0: "Sunday",
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+};
+
 
 // * Below are classes and function that are called above.
 
@@ -182,6 +192,7 @@ document.getElementById('settings-close').addEventListener('click', event => {
 // getting the time elements
 const hours = document.getElementById('hours');
 const minutes = document.getElementById('minutes');
+const day = document.getElementById('day');
 
 // function to manage time
 function setTime(date) {
@@ -208,6 +219,13 @@ function setTime(date) {
     if (minutes.innerText != min) {
 
         minutes.innerText = min+'';
+    }
+
+    // setting day
+    const dayy = dayInWords[date.getDay()] + "";
+    if (day.innerText != dayy) {
+
+        day.innerText = dayy + "";
     }
 }
 

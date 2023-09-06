@@ -65,6 +65,34 @@
     border-radius: 25px;
 }
 
+#clock .time {
+
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    /* font-weight: 400; */
+
+    position: absolute;
+    top: 3vh;
+
+    display: flex;
+    justify-content: center;
+    width: -webkit-fill-available;
+}
+
+#clock h3 {
+
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 100;
+
+    display: flex;
+    justify-content: center;
+    width: -webkit-fill-available;
+
+    position: absolute;
+    top: 10vh;
+}
+
 .h3-white {
 
     color: white;
@@ -96,7 +124,7 @@
     display: flex;
     width: -webkit-fill-available;
     justify-content: center;
-    font-weight: 100;
+    /* font-weight: 100; */
     font-size: 2rem;
 
     color: #b4befe;
