@@ -175,6 +175,14 @@
 
 /* Code Below is used to style settings section */
 
+.h3-settings {
+
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    color: #74c7ec;
+}
+
 .left-arrow {
 
     position: absolute;
@@ -417,4 +425,150 @@ label {
   width: 0;
   background: transparent;
  }
+}
+
+
+/* css to display the color pallete */  
+
+.color-display span {
+
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+}
+
+.color-display span:hover {
+
+    cursor: pointer;
+    opacity: 95%;
+}
+
+.rosewater {
+
+    background-color: rgb(245, 224, 220);
+}
+
+.flamingo {
+
+    background-color: rgb(242, 205, 205); 
+}
+
+.pink {
+
+    background-color: rgb(245, 194, 231);
+}
+
+.muave {
+
+    background-color: rgb(203, 166, 247);
+}
+
+.red {
+
+    background-color: rgb(243, 139, 168);
+}
+
+.maroon {
+
+    background-color: rgb(235, 160, 172);
+}
+
+.peach {
+
+    background-color: rgb(250, 179, 135);
+}
+
+.yellow {
+
+    background-color: rgb(249, 226, 175);
+}
+
+.green {
+
+    background-color: rgb(166, 227, 161);
+}
+
+.teal {
+
+    background-color: rgb(148, 226, 213);
+}
+
+.sky {
+
+    background-color: rgb(137, 220, 235);
+}
+
+.sapphire {
+
+    background-color: rgb(116, 199, 236);
+}
+
+.blue {
+
+    background-color: rgb(116, 199, 236);
+}
+
+.lavendar {
+
+    background-color: rgb(180, 190, 254);
+}
+
+.text {
+
+    background-color: rgb(205, 214, 244);
+}
+
+.subtext1 {
+
+    background-color: rgb(186, 194, 222);
+}
+
+.subtext0 {
+
+    background-color: rgb(166, 173, 200);
+}
+
+.overlay2 {
+
+    background-color: rgb(147, 153, 178);
+}
+
+.overlay1 {
+
+    background-color: rgb(127, 132, 156);
+}
+
+.overlay0 {
+
+    background-color: rgb(108, 112, 134);
+}
+
+.surface2 {
+
+    background-color: rgb(88, 91, 112);
+}
+
+.surface1 {
+
+    background-color: rgb(69, 71, 90);
+}
+
+.surface0 {
+
+    background-color: rgb(49, 50, 68);
+}
+
+.base {
+
+    background-color: rgb(30, 30, 46);
+}
+
+.mantle {
+
+    background-color: rgb(24, 24, 37);
+}
+
+.crust {
+
+    background-color: rgb(17, 17, 27);
 }
