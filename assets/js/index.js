@@ -247,3 +247,17 @@ document.getElementById('home-section-settings').addEventListener('click', event
     // showing home settings
     homeSettings.classList.remove('hidden');
 });
+
+// enabling the stat color pallete
+const statPallete = document.getElementById('stat-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the child element
+    const val = statPallete.item(i);
+
+    // adding event listener to the child element
+    val.addEventListener('click', event => {
+
+        document.getElementById('stat-div').style.color = colorPalleteInfo[val.classList.value];
+    });
+}
