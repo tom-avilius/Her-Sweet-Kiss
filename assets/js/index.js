@@ -197,11 +197,14 @@ document.getElementById('set-username').addEventListener('click', event => {
 document.getElementById('left-arrow').addEventListener('click', event => {
 
     const settingsHome = document.getElementById('settings-home');
-    const settingList = [homeSettings];
+    const settingList = [
+
+        document.getElementById('home-settings'),
+    ];
     // removing all settings elements
     settingList.forEach(val => val.classList.add('hidden'));
     // making all theme elements visible
-    sectionsList.forEach(val => val.classList.remove('hidden'));
+    elementsList.forEach(val => val.classList.remove('hidden'));
 
     settingsHome.classList.remove('hidden');
 });
