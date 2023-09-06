@@ -1,4 +1,59 @@
 
+const colorPalleteInfo = {
+
+    rosewater: "rgb(245, 224, 220)",
+
+    flamingo: "rgb(242, 205, 205)",
+
+    pink: "rgb(245, 194, 231)",
+
+    muave: "rgb(203, 166, 247)",
+
+    red: "rgb(243, 139, 168)",
+
+    maroon: "rgb(235, 160, 172)",
+
+    peach: "rgb(250, 179, 135)",
+
+    yellow: "rgb(249, 226, 175)", 
+
+    green: "rgb(166, 227, 161)",
+
+    teal: "rgb(148, 226, 213)", 
+
+    sky: "rgb(137, 220, 235)",
+
+    sapphire: "rgb(116, 199, 236)",
+
+    blue: "rgb(116, 199, 236)",
+     
+    lavendar: "rgb(180, 190, 254)", 
+
+    text: "rgb(205, 214, 244)",
+
+    subtext1: "rgb(186, 194, 222)",
+
+    subtext0: "rgb(166, 173, 200)",
+
+    overlay2: "rgb(147, 153, 178)",
+
+    overlay1: "rgb(127, 132, 156)",
+
+    overlay0: "rgb(108, 112, 134)",
+
+    surface2: "rgb(88, 91, 112)", 
+
+    surface1: "rgb(69, 71, 90)",
+
+    surface0: "rgb(49, 50, 68)",
+
+    base: "rgb(30, 30, 46)", 
+
+    mantle: "rgb(24, 24, 37)", 
+
+    crust: "rgb(17, 17, 27)", 
+}
+
 
 // * Below are classes and function that are called above.
 
@@ -51,76 +106,13 @@ const enableDraggability = (elementsList) => {
 }
 
 // function to enable settings
-const enableSettings = (sectionsList) => {
+const enableSettings = () => {
 
     // the settings section
     const settings = document.getElementById('settings');
 
-    // settings inner sections
-    const settingsHome = document.getElementById('settings-home');
-    const homeSettings = document.getElementById('home-settings');
-    const settingList = [homeSettings];
-
     // removing hidden class from settings section
     settings.classList.remove('hidden');
-
-    // function to handle left arrow click
-    handleLeftArrow = () => {
-
-        // removing all settings elements
-        settingList.forEach(val => val.classList.add('hidden'));
-        // making all theme elements visible
-        sectionsList.forEach(val => val.classList.remove('hidden'));
-
-        settingsHome.classList.remove('hidden');
-    }
-
-    // function to handle home settings 
-    const handleHomeSettings = () => {
-
-        // the home section
-        const homeSection = document.getElementById('home');
-
-        // iterating through all the sections and hiding them except for the home section
-        sectionsList.forEach(val => {
-
-            if (val == homeSection) {} else {
-
-                val.classList.add(hidden);
-            }
-        });
-
-        // hiding the settings home page
-        settingsHome.classList.add('hidden');
-
-        // showing home settings
-        homeSettings.classList.remove('hidden');
-
-        // adding click event listener to the set username button to change the username
-        document.getElementById('set-username').addEventListener('click', event => {
-
-            // set username input
-            const usernameInput = document.getElementById('change-username');
-
-            // changing the username
-            document.getElementById('username').innerText = usernameInput.value;
-            // storing the new username
-            disk.store('username', usernameInput.value);
-        });
-        
-    }
-
-    // calling handleLeftArrow when left arrow is clicked
-    document.getElementById('left-arrow').addEventListener('click', event => {
-
-        handleLeftArrow();
-    });
-
-    // calling handleHomeSettings() when home section settings is invoked
-    document.getElementById('home-section-settings').addEventListener('click', event => {
-
-        handleHomeSettings();
-    });
 }
 
 // function to close settings section
@@ -177,11 +169,78 @@ enableDraggability(elementsList);
 // enabling settings action 
 document.getElementById('personal-settings').addEventListener('click', (event) => {
 
-    enableSettings(elementsList);
+    enableSettings();
 });
 
 // enabling the settings close button
 document.getElementById('settings-close').addEventListener('click', event => {
 
     closeSettings();
+});
+
+
+
+// ! Code below manages settings
+// adding click event listener to the set username button to change the username
+document.getElementById('set-username').addEventListener('click', event => {
+
+    // set username input
+    const usernameInput = document.getElementById('change-username');
+
+    // changing the username
+    document.getElementById('username').innerText = usernameInput.value;
+    // storing the new username
+    disk.store('username', usernameInput.value);
+});
+
+// calling handleLeftArrow when left arrow is clicked
+document.getElementById('left-arrow').addEventListener('click', event => {
+
+    const settingsHome = document.getElementById('settings-home');
+    const settingList = [homeSettings];
+    // removing all settings elements
+    settingList.forEach(val => val.classList.add('hidden'));
+    // making all theme elements visible
+    sectionsList.forEach(val => val.classList.remove('hidden'));
+
+    settingsHome.classList.remove('hidden');
+});
+
+// enabling the username color pallete
+const usernamePallete = document.getElementById('username-color').children;
+// adding event listeners to all colors
+for (var i=0; i<26; i++) {
+
+    const val = usernamePallete.item(i)
+    
+    val.addEventListener('click', (event) => {
+
+        document.getElementById('username').style.color = colorPalleteInfo[val.classList.value];
+    });
+}
+
+// calling handleHomeSettings() when home section settings is invoked
+document.getElementById('home-section-settings').addEventListener('click', event => {
+
+    // settings inner sections
+    const settingsHome = document.getElementById('settings-home');
+    const homeSettings = document.getElementById('home-settings');
+
+    // the home section
+    const homeSection = document.getElementById('home');
+
+    // iterating through all the sections and hiding them except for the home section
+    elementsList.forEach(val => {
+
+        if (val == homeSection) {} else {
+
+            val.classList.add(hidden);
+        }
+    });
+
+    // hiding the settings home page
+    settingsHome.classList.add('hidden');
+
+    // showing home settings
+    homeSettings.classList.remove('hidden');
 });
