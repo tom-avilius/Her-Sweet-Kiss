@@ -55,6 +55,16 @@
  right: 0;
 }
 
+#clock {
+
+    height: 13vh;
+    min-width: 18vw;
+    background-color: #45475a;
+    padding: 15px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    border-radius: 25px;
+}
+
 .h3-white {
 
     color: white;

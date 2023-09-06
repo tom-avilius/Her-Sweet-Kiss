@@ -91,6 +91,7 @@ const createArrayListElements = () => {
 
         // sections
          document.getElementById('home'),
+         document.getElementById('clock'),
     ];
 
     return list;
@@ -101,7 +102,7 @@ const enableDraggability = (elementsList) => {
 
     elementsList.forEach( val => {
         
-        element.draggable(val);
+        element.draggable(val, val.id);
     });
 }
 
@@ -237,7 +238,7 @@ document.getElementById('home-section-settings').addEventListener('click', event
 
         if (val == homeSection) {} else {
 
-            val.classList.add(hidden);
+            val.classList.add('hidden');
         }
     });
 
