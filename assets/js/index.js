@@ -95,6 +95,19 @@ const enableSettings = (sectionsList) => {
 
         // showing home settings
         homeSettings.classList.remove('hidden');
+
+        // adding click event listener to the set username button to change the username
+        document.getElementById('set-username').addEventListener('click', event => {
+
+            // set username input
+            const usernameInput = document.getElementById('change-username');
+
+            // changing the username
+            document.getElementById('username').innerText = usernameInput.value;
+            // storing the new username
+            disk.store('username', usernameInput.value);
+        });
+        
     }
 
     // calling handleLeftArrow when left arrow is clicked
