@@ -140,57 +140,11 @@ const closeSettings = (elementsList) => {
 
     // hiding all other sections
     document.getElementById('home-settings').classList.add('hidden');
+    document.getElementById('clock-settings').classList.add('hidden');
 
     // showing all theme elements
     elementsList.forEach(val => val.classList.remove('hidden'));
 }
-
-
-
-// ! It is adviced that all developers who create their own themes
-// ! for the splash application create an entry into the disk using
-// ! disk.store(); method to store first time run of their theme.
-// ! This is done for two reasons:
-// ! 1 => To know if it is the first time their theme is run to do the needful.
-// ! 2 => To clear the existing disk storage of the previous theme so that everything works smoothly.
-// ! Step 2 is IMPORTANT because some existing variables of the previous theme might cause issue in the new theme.
-
-// Setting up the first time use:
-
-// Checking if herSweetKissLogin exists or not
-// disk.get would return null if the variable to searched does not exist
-if (disk.get('herSweetKissLogin') == null) {
-
-    // login initializer section element.
-    const loginInitializerSection = document.getElementById('login-initializer');
-
-    // showing the initializer section
-    loginInitializerSection.classList.remove('hidden');
-
-    console.log('First Login Invoked..');
-    disk.clear();
-
-    // calling function to handle first time login:
-    handleFirstTimeLogin();
-}
-
-// creating list of elements
-const elementsList = createArrayListElements();
-
-// making elements draggable
-enableDraggability(elementsList);
-
-// enabling settings action 
-document.getElementById('personal-settings').addEventListener('click', (event) => {
-
-    enableSettings();
-});
-
-// enabling the settings close button
-document.getElementById('settings-close').addEventListener('click', event => {
-
-    closeSettings(elementsList);
-});
 
 // getting the time elements
 const hours = document.getElementById('hours');
@@ -242,8 +196,88 @@ function startTime() {
     setTimeout(startTime, 1000);
 }
 
+// class to manage weather 
+class Weather {
+
+    constructor () {
+
+        this.city = disk.get('city');
+    }
+
+    async makeCall() {
+
+        let response = await fetch(
+        "http://api.weatherapi.com/v1/current.json?key=4cf4e91702e544c3bde103141232806&q=" +
+            this.city
+        );
+        let data = await response.json();
+
+        return data;
+    }
+
+    setWeather() {
+
+        this.makeCall().then( (data) => {
+
+            console.log(data);
+        })
+    }
+}
+
+
+
+
+// ! It is adviced that all developers who create their own themes
+// ! for the splash application create an entry into the disk using
+// ! disk.store(); method to store first time run of their theme.
+// ! This is done for two reasons:
+// ! 1 => To know if it is the first time their theme is run to do the needful.
+// ! 2 => To clear the existing disk storage of the previous theme so that everything works smoothly.
+// ! Step 2 is IMPORTANT because some existing variables of the previous theme might cause issue in the new theme.
+
+// Setting up the first time use:
+
+// Checking if herSweetKissLogin exists or not
+// disk.get would return null if the variable to searched does not exist
+if (disk.get('herSweetKissLogin') == null) {
+
+    // login initializer section element.
+    const loginInitializerSection = document.getElementById('login-initializer');
+
+    // showing the initializer section
+    loginInitializerSection.classList.remove('hidden');
+
+    console.log('First Login Invoked..');
+    disk.clear();
+
+    // calling function to handle first time login:
+    handleFirstTimeLogin();
+}
+
+// creating list of elements
+const elementsList = createArrayListElements();
+
+// making elements draggable
+enableDraggability(elementsList);
+
+// enabling settings action 
+document.getElementById('personal-settings').addEventListener('click', (event) => {
+
+    enableSettings();
+});
+
+// enabling the settings close button
+document.getElementById('settings-close').addEventListener('click', event => {
+
+    closeSettings(elementsList);
+});
+
 // starting the time
 startTime();
+
+// starting the weather
+const weather = new Weather();
+weather.setWeather();
 
 
 
@@ -353,7 +387,7 @@ for (var i=0; i<26; i++) {
     // adding event listener to the color
     val.addEventListener('click', event => {
 
-        document.getElementById('home').style.backgroundColor = val.classList.value;
+        document.getElementById('home').style.backgroundColor = colorPalleteInfo[val.classList.value];
     });
 }
 
