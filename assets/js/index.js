@@ -68,7 +68,13 @@ const dayInWords = {
 // * Below are classes and function that are called above.
 
 // function to handle first time login
-const handleFirstTimeLogin = () => {
+const handleFirstTimeLogin = (elementsList) => {
+
+    // hiding other elements
+    elementsList.forEach( val => { 
+
+        val.classList.add('hidden');
+    });
 
     // login initializer section element.
     const loginInitializerSection = document.getElementById('login-initializer');
@@ -87,6 +93,9 @@ const handleFirstTimeLogin = () => {
 
         // hiding the initializer section
         loginInitializerSection.classList.add('hidden');
+
+        // showing the other elements
+        elementsList.forEach((val) => val.classList.remove('hidden'));
 
         // setting first time login as true.
         disk.store('herSweetKissLogin', true);
@@ -224,7 +233,19 @@ class Weather {
     }
 }
 
+// function to load a default and intentionaly set value when available for a particular key
+const getValue = (key = "", defValue = "") => {
 
+    const value = disk.get(key);
+
+    if (value === null) {
+
+        return defValue;
+    } else {
+
+        return value;
+    }
+}
 
 
 // ! It is adviced that all developers who create their own themes
@@ -235,8 +256,11 @@ class Weather {
 // ! 2 => To clear the existing disk storage of the previous theme so that everything works smoothly.
 // ! Step 2 is IMPORTANT because some existing variables of the previous theme might cause issue in the new theme.
 
-// Setting up the first time use:
 
+// creating list of elements
+const elementsList = createArrayListElements();
+
+// Setting up the first time use:
 // Checking if herSweetKissLogin exists or not
 // disk.get would return null if the variable to searched does not exist
 if (disk.get('herSweetKissLogin') == null) {
@@ -251,11 +275,8 @@ if (disk.get('herSweetKissLogin') == null) {
     disk.clear();
 
     // calling function to handle first time login:
-    handleFirstTimeLogin();
+    handleFirstTimeLogin(elementsList);
 }
-
-// creating list of elements
-const elementsList = createArrayListElements();
 
 // making elements draggable
 enableDraggability(elementsList);
@@ -397,9 +418,17 @@ document.getElementById('clock-section-settings').addEventListener('click', even
     // the settings elements
     const settingsHome = document.getElementById('settings-home');
     const clockSettings = document.getElementById('clock-settings');
-
-    // the clock section
+    
     const clockSection = document.getElementById('clock');
+
+    // hiding all sections except clock
+    elementsList.forEach( val => {
+
+        if (val == clockSection) { } else {
+
+            val.classList.add('hidden');
+        }
+    })
 
     // hiding home-settings and showing clock-settings
     settingsHome.classList.add('hidden');
