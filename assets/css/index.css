@@ -133,7 +133,7 @@
 #home .stat-div {
 
     position: absolute;
-    top: 8.5vh;
+    top: 10vh;
 
     width: -webkit-fill-available;
     display: flex;
@@ -144,7 +144,7 @@
 
     display: inline;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 100;
 }
 

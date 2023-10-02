@@ -160,6 +160,10 @@ const hours = document.getElementById('hours');
 const minutes = document.getElementById('minutes');
 const day = document.getElementById('day');
 
+// getting the stat elements
+const cpuStat = document.getElementById('cpu-stat');
+const ramStat = document.getElementById('ram-stat');
+
 // function to manage time
 function setTime(date) {
 
@@ -202,34 +206,59 @@ function startTime() {
 
     setTime(date);
 
+    // setting ram usage
+    var ram = Math.floor(100-os.ram())+"%";
+    if (ramStat.innerText == ram) { } else {
+        ramStat.innerText = ram;
+    }
+
+    // setting cpu usage
+    os.cpu( usage => {
+
+        const cpu = Math.floor(usage*100)+'%';
+        
+        if (cpuStat.innerText == cpu) { } else {
+
+            cpuStat.innerText = cpu;
+        }
+    })
+
     setTimeout(startTime, 1000);
 }
 
 // class to manage weather 
 class Weather {
 
-    constructor () {
+    static city = disk.get('city');
 
-        this.city = disk.get('city');
-    }
+    constructor () { }
 
-    async makeCall() {
+    static async makeCall() {
 
         let response = await fetch(
         "http://api.weatherapi.com/v1/current.json?key=4cf4e91702e544c3bde103141232806&q=" +
-            this.city
+            Weather.city
         );
         let data = await response.json();
 
         return data;
     }
 
-    setWeather() {
+    static setWeather() {
 
-        this.makeCall().then( (data) => {
+        Weather.makeCall().then( (data) => {
 
-            console.log(data);
+            const weatherData = data.current;
+            console.log(weatherData.temp_c);
+            console.log(weatherData.condition.text);
         })
+    }
+
+    makeWeather() {
+
+        Weather.setWeather();
+
+        setInterval(this.makeWeather, 1000*60*30);
     }
 }
 
@@ -246,6 +275,41 @@ const getValue = (key = "", defValue = "") => {
         return value;
     }
 }
+
+// enabling the home section
+const enableHome = () => {
+
+    // username related updations
+    const username = document.getElementById('username');
+    username.innerText = getValue("username", "John Doe");
+    username.style.color = getValue("username-color", "black");
+
+    // statistics related updations
+    document.getElementById('stat-div').style.color = getValue("stat-color", "black");
+
+    // personal icon related updations
+    document.getElementById('personal-settings').style.color = getValue("personal-icon-color", "black")
+
+    // home background related updations
+    document.getElementById('home').style.backgroundColor = getValue("home-color", "#45475a");
+}
+
+// enabling clock section
+const enableClock = () => {
+
+    // color of hour
+    document.getElementById('hours').style.color = getValue('hour-color', "black");
+
+    // color of minutes
+    document.getElementById('minutes').style.color = getValue('minutes-color', "black");
+
+    // color of day
+    document.getElementById('day').style.color = getValue('day-color', 'black');
+
+    // color of clock backround
+    document.getElementById('clock').style.backgroundColor = getValue('clock-color', "#45475a");
+}
+
 
 
 // ! It is adviced that all developers who create their own themes
@@ -278,6 +342,10 @@ if (disk.get('herSweetKissLogin') == null) {
     handleFirstTimeLogin(elementsList);
 }
 
+// enabling the color updations 
+enableHome();
+enableClock();
+
 // making elements draggable
 enableDraggability(elementsList);
 
@@ -298,7 +366,7 @@ startTime();
 
 // starting the weather
 const weather = new Weather();
-weather.setWeather();
+weather.makeWeather();
 
 
 
@@ -342,6 +410,7 @@ for (var i=0; i<26; i++) {
     val.addEventListener('click', (event) => {
 
         document.getElementById('username').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('username-color', colorPalleteInfo[val.classList.value]);
     });
 }
 
@@ -382,6 +451,7 @@ for (var i=0; i<26; i++) {
     val.addEventListener('click', event => {
 
         document.getElementById('stat-div').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('stat-color', colorPalleteInfo[val.classList.value]+"");
     });
 }
 
@@ -395,6 +465,7 @@ for (var i=0; i<26; i++) {
     val.addEventListener('click', event => {
 
         document.getElementById('personal-settings').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('personal-icon-color', colorPalleteInfo[val.classList.value]);
     });
 }
 
@@ -409,6 +480,7 @@ for (var i=0; i<26; i++) {
     val.addEventListener('click', event => {
 
         document.getElementById('home').style.backgroundColor = colorPalleteInfo[val.classList.value];
+        disk.store('home-color', colorPalleteInfo[val.classList.value]);
     });
 }
 
@@ -446,6 +518,7 @@ for (var i=0; i<26; i++) {
 
         // changing the color
         document.getElementById('hours').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('hour-color', colorPalleteInfo[val.classList.value]);
     });
 }
 
@@ -460,6 +533,7 @@ for (var i=0; i<26; i++) {
     val.addEventListener('click', event => {
 
         document.getElementById('minutes').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('minutes-color', colorPalleteInfo[val.classList.value]);
     });
 }
 
@@ -474,6 +548,7 @@ for (var i=0; i<26; i++) {
     val.addEventListener('click', event => {
 
         document.getElementById('day').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('day-color', colorPalleteInfo[val.classList.value]);
     });
 }
 
@@ -488,5 +563,6 @@ for (var i=0; i<26; i++) {
     val.addEventListener('click', event => {
 
         document.getElementById('clock').style.backgroundColor = colorPalleteInfo[val.classList.value];
+        disk.store('clock-color', colorPalleteInfo[val.classList.value]);
     });
 }
