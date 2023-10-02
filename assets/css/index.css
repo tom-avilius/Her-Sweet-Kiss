@@ -55,7 +55,7 @@
  right: 0;
 }
 
-#clock {
+#clock, #weather {
 
     height: 13vh;
     min-width: 18vw;

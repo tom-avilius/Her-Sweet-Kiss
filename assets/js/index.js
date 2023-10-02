@@ -111,6 +111,7 @@ const createArrayListElements = () => {
         // sections
          document.getElementById('home'),
          document.getElementById('clock'),
+         document.getElementById('weather'),
     ];
 
     return list;
