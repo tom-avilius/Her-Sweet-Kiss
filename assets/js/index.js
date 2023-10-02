@@ -112,6 +112,7 @@ const createArrayListElements = () => {
          document.getElementById('home'),
          document.getElementById('clock'),
          document.getElementById('weather'),
+         document.getElementById('dock'),
     ];
 
     return list;
