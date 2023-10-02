@@ -58,7 +58,7 @@
     </section>
 
     <section id="weather">
-        <h3 class="temp" id="temp">°C</h3>
+        <h3 class="temp"> <span id="temp">00</span><span id="c-temp">°C</span></h3>
         <h2 class="condition" id="condition">Condition</h2>
     </section>
 
@@ -378,22 +378,13 @@
 
         <section id="weather-settings" class="hidden">
 
-            <h1>Home Settings</h1> <br>
-            <h2>Only the home section is visible, make your changes:</h2>
+            <h1>Weather Settings</h1> <br>
+            <h2>Only the weather section is visible, make your changes:</h2>
 
             <div class="settings-content">
-                <div class="group">
-                    <input id="change-username" required="" type="text" class="input">
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Change Username</label>
-                </div>
-                <br>
-                <button id="set-username" class="set-username-button">Set</button>
-                <br> <br> <br>
                 <div>
-                    <h3 class="h3-settings">Set Username Color: </h3>
-                    <div id="username-color" class="color-display">
+                    <h3 class="h3-settings">Set Temperature Color: </h3>
+                    <div id="temp-color" class="color-display">
                         <span class="rosewater"></span>
                         <span class="flamingo"></span>
                         <span class="pink"></span>
@@ -424,8 +415,8 @@
                 </div>
                 <br>
                 <div>
-                    <h3 class="h3-settings">Set Statistics Color: </h3>
-                    <div id="stat-color" class="color-display">
+                    <h3 class="h3-settings">Set °C Color: </h3>
+                    <div id="c-color" class="color-display">
                         <span class="rosewater"></span>
                         <span class="flamingo"></span>
                         <span class="pink"></span>
@@ -456,8 +447,8 @@
                 </div>
                 <br>
                 <div>
-                    <h3 class="h3-settings">Set Personal Icon Color: </h3>
-                    <div id="personal-color" class="color-display">
+                    <h3 class="h3-settings">Set Condition Color: </h3>
+                    <div id="condition-color" class="color-display">
                         <span class="rosewater"></span>
                         <span class="flamingo"></span>
                         <span class="pink"></span>
@@ -489,7 +480,7 @@
                 <br>
                 <div>
                     <h3 class="h3-settings">Set Background Color: </h3>
-                    <div id="home-color" class="color-display">
+                    <div id="weather-color" class="color-display">
                         <span class="rosewater"></span>
                         <span class="flamingo"></span>
                         <span class="pink"></span>

@@ -254,7 +254,7 @@ class Weather {
         Weather.makeCall().then( (data) => {
 
             const weatherData = data.current;
-            temp.innerText = weatherData.temp_c+'°C';
+            temp.innerText = weatherData.temp_c;
             condition.innerText = weatherData.condition.text;
         })
     }
@@ -596,3 +596,63 @@ document.getElementById('weather-section-settings').addEventListener('click', (e
     settingsHome.classList.add('hidden');
     weatherSettings.classList.remove('hidden');
 });
+
+// enabling the temperature pallete
+const tempPallete = document.getElementById('temp-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = tempPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('temp').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('temp-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
+
+// enabling the °C color pallete
+const cPallete = document.getElementById('c-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = cPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('c-temp').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('c-temp-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
+
+// enabling weather condition color pallete
+const conditionPallete = document.getElementById('condition-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = conditionPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('condition').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('condition-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
+
+// enabling the weather background pallete
+const weatherPallete = document.getElementById('weather-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = weatherPallete.item(i);
+
+    // changing the color
+    val.addEventListener('click', event => {
+
+        document.getElementById('weather').style.backgroundColor = colorPalleteInfo[val.classList.value];
+        disk.store('weather-color', colorPalleteInfo[val.classList.value]);
+    });
+}
