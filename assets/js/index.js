@@ -153,6 +153,7 @@ const closeSettings = (elementsList) => {
     document.getElementById('home-settings').classList.add('hidden');
     document.getElementById('clock-settings').classList.add('hidden');
     document.getElementById('weather-settings').classList.add('hidden');
+    document.getElementById('dock-settings').classList.add('hidden');
 
     // showing all theme elements
     elementsList.forEach(val => val.classList.remove('hidden'));
@@ -674,3 +675,27 @@ for (var i=0; i<26; i++) {
         disk.store('weather-color', colorPalleteInfo[val.classList.value]);
     });
 }
+
+// ? Adding Dock settings
+document.getElementById('dock-section-settings').addEventListener('click', event => {
+
+    // the settings elements
+    const settingsHome = document.getElementById('settings-home');
+    const dockSettings = document.getElementById('dock-settings');
+    
+    const dockSection = document.getElementById('dock');
+
+    // hiding all sections except clock
+    elementsList.forEach( val => {
+
+        if (val == dockSection) { } else {
+
+            val.classList.add('hidden');
+        }
+    })
+
+    // hiding home-settings and showing clock-settings
+    settingsHome.classList.add('hidden');
+    dockSettings.classList.remove('hidden');
+});
+

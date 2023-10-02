@@ -288,7 +288,8 @@
 #settings {
 
     background-color: #1e1e2e;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: max-content;
     width: 50vw;
     float: right;
 
