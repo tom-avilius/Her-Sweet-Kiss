@@ -334,6 +334,13 @@ const enableWeather = () => {
     document.getElementById('weather').style.backgroundColor = getValue('weather-color', '#45475a')
 }
 
+// enabling dock section
+const enableDock = () => {
+
+    // chrome color
+    document.getElementById('chrome').style.color = getValue('chrome-color', "black");
+}
+
 
 // ! It is adviced that all developers who create their own themes
 // ! for the splash application create an entry into the disk using
@@ -369,6 +376,7 @@ if (disk.get('herSweetKissLogin') == null) {
 enableHome();
 enableClock();
 enableWeather();
+enableDock();
 
 // making elements draggable
 enableDraggability(elementsList);
@@ -698,4 +706,19 @@ document.getElementById('dock-section-settings').addEventListener('click', event
     settingsHome.classList.add('hidden');
     dockSettings.classList.remove('hidden');
 });
+
+// enabling the chrome pallete
+const chromePallete = document.getElementById('chrome-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = chromePallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('chrome').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('chrome-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
 
