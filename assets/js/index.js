@@ -165,6 +165,10 @@ const day = document.getElementById('day');
 const cpuStat = document.getElementById('cpu-stat');
 const ramStat = document.getElementById('ram-stat');
 
+// getting the weather elements
+const condition = document.getElementById('condition');
+const temp = document.getElementById('temp');
+
 // function to manage time
 function setTime(date) {
 
@@ -250,8 +254,8 @@ class Weather {
         Weather.makeCall().then( (data) => {
 
             const weatherData = data.current;
-            console.log(weatherData.temp_c);
-            console.log(weatherData.condition.text);
+            temp.innerText = weatherData.temp_c+'°C';
+            condition.innerText = weatherData.condition.text;
         })
     }
 
