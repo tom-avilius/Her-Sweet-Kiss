@@ -316,6 +316,21 @@ const enableClock = () => {
     document.getElementById('clock').style.backgroundColor = getValue('clock-color', "#45475a");
 }
 
+// enabling weather section
+const enableWeather = () => {
+
+    // color of condition
+    condition.style.color = getValue('condition-color', 'black');
+
+    // color of °C
+    document.getElementById('c-temp').style.color = getValue('c-color', 'black');
+
+    // color of temp
+    temp.style.color = getValue('temp-color', 'black');
+
+    // color of weather background
+    document.getElementById('weather').style.backgroundColor = getValue('weather-color', '#45475a')
+}
 
 
 // ! It is adviced that all developers who create their own themes
@@ -351,6 +366,7 @@ if (disk.get('herSweetKissLogin') == null) {
 // enabling the color updations 
 enableHome();
 enableClock();
+enableWeather();
 
 // making elements draggable
 enableDraggability(elementsList);
@@ -624,7 +640,7 @@ for (var i=0; i<26; i++) {
 
         // changing the color
         document.getElementById('c-temp').style.color = colorPalleteInfo[val.classList.value];
-        disk.store('c-temp-color', colorPalleteInfo[val.classList.value]);
+        disk.store('c-color', colorPalleteInfo[val.classList.value]);
     }); 
 }
 
