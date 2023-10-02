@@ -396,6 +396,7 @@ document.getElementById('left-arrow').addEventListener('click', event => {
 
         document.getElementById('home-settings'),
         document.getElementById('clock-settings'),
+        document.getElementById('weather-settings'),
     ];
     // removing all settings elements
     settingList.forEach(val => val.classList.add('hidden'));
@@ -419,7 +420,8 @@ for (var i=0; i<26; i++) {
     });
 }
 
-// calling handleHomeSettings() when home section settings is invoked
+// ? Start of home settings
+//  calling handleHomeSettings() when home section settings is invoked
 document.getElementById('home-section-settings').addEventListener('click', event => {
 
     // settings inner sections
@@ -489,7 +491,7 @@ for (var i=0; i<26; i++) {
     });
 }
 
-// managing clock section settings
+// ? managing clock section settings
 document.getElementById('clock-section-settings').addEventListener('click', event => {
 
     // the settings elements
@@ -571,3 +573,26 @@ for (var i=0; i<26; i++) {
         disk.store('clock-color', colorPalleteInfo[val.classList.value]);
     });
 }
+
+// ? Managing weather settings
+document.getElementById('weather-section-settings').addEventListener('click', (event) => {
+
+    // the settings elements
+    const settingsHome = document.getElementById('settings-home');
+    const weatherSettings = document.getElementById('weather-settings');
+    
+    const weatherSection = document.getElementById('weather');
+
+    // hiding all sections except clock
+    elementsList.forEach( val => {
+
+        if (val == weatherSection) { } else {
+
+            val.classList.add('hidden');
+        }
+    })
+
+    // hiding home-settings and showing clock-settings
+    settingsHome.classList.add('hidden');
+    weatherSettings.classList.remove('hidden');
+});
