@@ -151,6 +151,7 @@ const closeSettings = (elementsList) => {
     // hiding all other sections
     document.getElementById('home-settings').classList.add('hidden');
     document.getElementById('clock-settings').classList.add('hidden');
+    document.getElementById('weather-settings').classList.add('hidden');
 
     // showing all theme elements
     elementsList.forEach(val => val.classList.remove('hidden'));
