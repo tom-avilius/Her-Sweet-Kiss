@@ -339,6 +339,9 @@ const enableDock = () => {
 
     // chrome color
     document.getElementById('chrome').style.color = getValue('chrome-color', "black");
+
+    // code color
+    document.getElementById('code').style.color = getValue('code-color', "black");
 }
 
 
@@ -719,6 +722,21 @@ for (var i=0; i<26; i++) {
         // changing the color
         document.getElementById('chrome').style.color = colorPalleteInfo[val.classList.value];
         disk.store('chrome-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
+
+// enabling the temperature pallete
+const codePallete = document.getElementById('code-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = codePallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('code').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('code-color', colorPalleteInfo[val.classList.value]);
     }); 
 }
 
