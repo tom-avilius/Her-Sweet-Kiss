@@ -342,6 +342,21 @@ const enableDock = () => {
 
     // code color
     document.getElementById('code').style.color = getValue('code-color', "black");
+
+    // vlc color 
+    document.getElementById('vlc').style.color = getValue('vlc-color', "black");
+
+    // terminal color
+    document.getElementById('terminal').style.color = getValue('terminal-color', "black");
+
+    // word color
+    document.getElementById('word').style.color = getValue('word-color', "black");
+
+    // excel color
+    document.getElementById('excel').style.color = getValue('excel-color', "black")
+
+    // background color 
+    document.getElementById('dock').style.backgroundColor = getValue('dock-color', "#45475a");
 }
 
 
@@ -740,3 +755,77 @@ for (var i=0; i<26; i++) {
     }); 
 }
 
+// enabling the vlc pallete
+const vlcPallete = document.getElementById('vlc-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = vlcPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('vlc').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('vlc-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
+
+// enabling the terminal pallete
+const terminalPallete = document.getElementById('terminal-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = terminalPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('terminal').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('terminal-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
+
+// enabling the word pallete
+const wordPallete = document.getElementById('word-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = wordPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('word').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('word-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
+
+// enabling the excel pallete
+const excelPallete = document.getElementById('excel-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = excelPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('excel').style.color = colorPalleteInfo[val.classList.value];
+        disk.store('excel-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
+
+// enabling the dock pallete
+const dockPallete = document.getElementById('dock-color').children;
+for (var i=0; i<26; i++) {
+
+    // getting the span element
+    const val = dockPallete.item(i);
+
+    val.addEventListener('click', event => {
+
+        // changing the color
+        document.getElementById('dock').style.backgroundColor = colorPalleteInfo[val.classList.value];
+        disk.store('dock-color', colorPalleteInfo[val.classList.value]);
+    }); 
+}
