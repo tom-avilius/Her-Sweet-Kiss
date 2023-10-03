@@ -357,6 +357,43 @@ const enableDock = () => {
 
     // background color 
     document.getElementById('dock').style.backgroundColor = getValue('dock-color', "#45475a");
+
+
+    // chrome click
+    document.getElementById('chrome').addEventListener('click', (event) => {
+
+        terminal.execute('start chrome');
+    });
+
+    // code click
+    document.getElementById('code').addEventListener('click', event => {
+
+        terminal.execute('code');
+    });
+
+    // vlc click
+    document.getElementById('vlc').addEventListener('click', event => {
+
+        terminal.execute('start vlc');
+    });
+
+    // word click
+    document.getElementById('word').addEventListener('click', event => {
+
+        terminal.execute('word');
+    });
+
+    // excel click
+    document.getElementById('excel').addEventListener('click', event => {
+
+        terminal.excecute('excel');
+    });
+
+    // terminal click
+    document.getElementById('terminal').addEventListener('click', event => {
+
+        terminal.execute('start');
+    });
 }
 
 
